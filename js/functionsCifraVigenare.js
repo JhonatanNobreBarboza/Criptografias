@@ -6,7 +6,7 @@ function criptografar(letra, valorLetra){
 	for(let i = 0; i < letra.length; i++){
 		for(let j = 0; j < alfabeto.length; j++){
 			if(alfabeto[j] == letra[i]){
-				return alfabeto[(j + valorLetra)];
+				return alfabeto[(j + valorLetra)%26];
 			}
 		}
 	}
@@ -17,7 +17,7 @@ function descriptografar(letra, valorLetra){
 	for(let i = 0; i < letra.length; i++){
 		for(let j = 0; j < alfabeto.length; j += 1){
 			if(letra[i] == alfabeto[j]){
-				return alfabeto[((j - valorLetra)+25)];
+				return alfabeto[((j - valorLetra)+25)%26];
 			}
 		}
 	}
