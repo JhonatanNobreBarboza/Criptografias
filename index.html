@@ -192,21 +192,21 @@
             <hr class="star-dark mb-5">
             
             <div class="container-fluid">
-                <form method="POST" action="functions.js" id="formulario">
+                <form id="form-vigenere">
                     <div class="container-fluid col-12">
                         <div class="row-fluid">
                             
                                 <label for="criptografar"></label>
     
-                                <textarea class="form-control cripto descripto" rows="8"></textarea>
+                                <textarea class="form-control cripto descripto" id="texto" name="texto" rows="8"></textarea>
                         
                                 <div class="input-group row col-12">
-                                        <input type="number" class="form-control chave1 chave2" placeholder="Digite a Chave"aria-describedby="button-addon2">
+                                        <input type="text" class="form-control chave2" id="chave" name="chave" placeholder="Digite a Chave"aria-describedby="button-addon2">
                                         <div class="input-group-append">
-                                          <button class="btn btn-primary botaoCri" onclick="criptografar()" type="button" id="button-addon2">Criptografar</button>
+                                          <button class="btn btn-primary botaoCri2" type="button" onclick="vigenere_encrypt()" name="cifrar" id="cifrar">Criptografar</button>
                                         </div>
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary botaoCri" onclick="descriptografar()" type="button" id="button-addon2">Descriptografar</button>
+                                            <button class="btn btn-primary botaoCri2" type="button" onclick="vigenere_decrypt()" name=""decifrar id="decifrar">Descriptografar</button>
                                           </div>
                                       </div>                           
                             </div>                 
@@ -214,8 +214,8 @@
                             </div>
     
                                 <div class="form-group col-12">
-                                    <label for="resultado">Resultado</label>
-                                    <textarea class="form-control result" rows="4" ></textarea>
+                                    <label for="resultado" id="resultado" name="resultado">Resultado</label>
+                                    <textarea class="form-control result2" id="result" rows="4" ></textarea>
                                 </div>
                             </div>
                         </div>
@@ -257,6 +257,8 @@
 
   <!-- Function Cifra de Cesar-->
   <script src="js/functionsCifraCesar.js"></script>
+  <script src="js/functionsCifraVigenare.js"></script>
+  <script src="js/jquery.min.js"></script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

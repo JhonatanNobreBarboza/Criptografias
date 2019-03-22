@@ -1,7 +1,3 @@
-function removerAcentos(s) {
- 
-  }
-
 function letraAnterior(s){
     let c = s.charCodeAt(0);
     switch(c){
