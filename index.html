@@ -16,14 +16,15 @@
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css">
 
   <!-- Plugin CSS -->
   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
   <link href="css/freelancer.min.css" rel="stylesheet">
-  
+
 
 </head>
 
@@ -31,9 +32,11 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-    <div class="container">
+    <div class="container-fluid">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Sistema de Criptografia</a>
-      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button"
+        data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
@@ -55,7 +58,7 @@
 
   <!-- Header -->
   <header class="masthead bg-primary text-white text-center">
-    <div class="container">
+    <div class="container-fluid">
       <img class="img-fluid mb-5 d-block mx-auto" src="img/cripto.jpg" alt="">
       <h1 class="text-uppercase mb-0">Sistema de Criptografia</h1>
       <hr class="star-light">
@@ -65,7 +68,7 @@
 
   <!-- Portfolio Grid Section -->
   <section class="portfolio" id="portfolio">
-    <div class="container">
+    <div class="container-fluid">
       <h2 class="text-center text-uppercase text-secondary mb-0">Tipos de Criptografia</h2>
       <hr class="star-dark mb-5">
       <div class="row">
@@ -78,7 +81,7 @@
             </div>
             <img class="img-fluid" src="img/portfolio/cifraCesar.png" alt="">
           </a>
-          
+
         </div>
         <div class="col-md-6 col-lg-4">
           <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
@@ -100,180 +103,194 @@
             <img class="img-fluid" src="img/portfolio/CifradeTranposição.png" alt="">
           </a>
         </div>
-  <!-- About Section -->
-  <section class="bg-primary text-white mb-0" id="about">
-    <div class="container">
-      <h2 class="text-center text-uppercase text-white">Sobre o Desenvolvimento</h2>
-      <hr class="star-light mb-5">
-      <div class="row">
-        <div class="col-10 container">
-          
-            <p class="lead text-justify">A criptografia é um conceito técnico usado para codificar uma informação, de tal forma que somente o seu destinatário e o emissor da mensagem consigam acessá-la. O objetivo é evitar que terceiros interceptem e desvendem o código.</p>
-            <p class="lead text-justify">Na atualidade, as técnicas de criptografias mais conhecidas envolvem o conceito das chaves criptográficas, que são formadas por bits, com base em algarismos com capacidade de interpretar as informações, ou seja, capaz de decodificar. A chave do emissor deve ser compatível com a do receptor, para assim, as informações serem extraídas.</p>
-            
-            
-            <a class="btn-outline-light" href="https://www.targethost.com.br/importancia-criptografia-seguranca-dados/"><cite title="Título da fonte">Fonte: TargetHost</cite></a>
-            
-        </div>
-      </div>
-      
-    </div>
-  </section>
+        <!-- About Section -->
+        <section class="bg-primary text-white mb-0 container" id="about">
+          <div class="container-fluid">
+            <h3 class="text-center text-uppercase text-white ">Sobre o Desenvolvimento</h3>
+            <hr class="star-light mb-5">
+            <div class="row">
+              <div class="col-12 container-fluid">
 
-  <!-- Portfolio Modals -->
+                <p class="lead text-justify">A criptografia é um conceito técnico usado para codificar uma informação,
+                  de tal forma que somente o seu destinatário e o emissor da mensagem consigam acessá-la. O objetivo é
+                  evitar que terceiros interceptem e desvendem o código.</p>
+                <p class="lead text-justify">Na atualidade, as técnicas de criptografias mais conhecidas envolvem o
+                  conceito das chaves criptográficas, que são formadas por bits, com base em algarismos com capacidade
+                  de interpretar as informações, ou seja, capaz de decodificar. A chave do emissor deve ser compatível
+                  com a do receptor, para assim, as informações serem extraídas.</p>
 
-  <!-- Portfolio Modal 1 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
 
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Cifra de Cesar</h2>
-            <hr class="star-dark mb-5">
-           
-            <div class="container-fluid">
-                <form method="POST" action="functions.js" id="formulario">
-                    <div class="container-fluid col-12">
-                        <div class="row-fluid">
-                            
-                                <label for="criptografar"></label>
-    
-                                <textarea class="form-control cripto descripto" rows="8"></textarea>
-                        
-                                <div class="input-group row col-12">
-                                        <input type="number" class="form-control chave1 chave2" placeholder="Digite a Chave"aria-describedby="button-addon2">
-                                        <div class="input-group-append">
-                                          <button class="btn btn-primary botaoCri" onclick="criptografar()" type="button" id="button-addon2">Criptografar</button>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary botaoCri" onclick="descriptografar()" type="button" id="button-addon2">Descriptografar</button>
-                                          </div>
-                                      </div>                           
-                            </div>                 
-                                
-                            </div>
-    
-                                <div class="form-group col-12">
-                                    <label for="resultado">Resultado</label>
-                                    <textarea class="form-control result" rows="4" ></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                
-                <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-                    <i class="fa fa-close"></i>
-                    Voltar</a>
+                <a class="btn-outline-light"
+                  href="https://www.targethost.com.br/importancia-criptografia-seguranca-dados/"><cite
+                    title="Título da fonte">Fonte: TargetHost</cite></a>
+
+              </div>
             </div>
-        </div>
 
-            
           </div>
+        </section>
+
+        <!-- Portfolio Modals -->
+
+        <!-- Portfolio Modal 1 -->
+        <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
+          <div class="portfolio-modal-dialog bg-white">
+            <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+              <i class="fa fa-3x fa-times"></i>
+            </a>
+            <div class="container text-center">
+
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <h2 class="text-secondary text-uppercase mb-0">Cifra de Cesar</h2>
+                  <hr class="star-dark mb-5">
+
+                  <div class="container-fluid">
+                    <form method="POST" action="functions.js" id="formulario">
+                      <div class="container-fluid col-12">
+                        <div class="row-fluid">
+
+                          <label for="criptografar"></label>
+
+                          <textarea class="form-control cripto descripto" rows="8"></textarea>
+
+                          <div class="input-group row col-12">
+                            <input type="number" class="form-control chave1 chave2" placeholder="Digite a Chave"
+                              aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-primary botaoCri" onclick="criptografar()" type="button"
+                                id="button-addon2">Criptografar</button>
+                                
+                              <button class="btn btn-primary botaoCri" onclick="descriptografar()" type="button"
+                              id="button-addon2">Descriptografar</button>
+                            </div>
+                            
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="form-group col-12">
+                        <label for="resultado">Resultado</label>
+                        <textarea class="form-control result" rows="4"></textarea>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              </form>
+
+              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                <i class="fa fa-close"></i>
+                Voltar</a>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </div>
-  </div>
+    </div>
+    </div>
 
-  <!-- Portfolio Modal 2 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Cifra de Vigenère</h2>
-            <hr class="star-dark mb-5">
-            
-            <div class="container-fluid">
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary text-uppercase mb-0">Cifra de Vigenère</h2>
+              <hr class="star-dark mb-5">
+
+              <div class="container-fluid">
                 <form id="form-vigenere">
-                    <div class="container-fluid col-12">
-                        <div class="row-fluid">
-                            
-                                <label for="criptografar"></label>
-    
-                                <textarea class="form-control cripto descripto" id="texto" name="texto" rows="8"></textarea>
-                        
-                                <div class="input-group row col-12">
-                                        <input type="text" class="form-control chave2" id="chave" name="chave" placeholder="Digite a Chave"aria-describedby="button-addon2">
-                                        <div class="input-group-append">
-                                          <button class="btn btn-primary botaoCri2" type="button" onclick="vigenere_encrypt()" name="cifrar" id="cifrar">Criptografar</button>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary botaoCri2" type="button" onclick="vigenere_decrypt()" name=""decifrar id="decifrar">Descriptografar</button>
-                                          </div>
-                                      </div>                           
-                            </div>                 
-                                
-                            </div>
-    
-                                <div class="form-group col-12">
-                                    <label for="resultado" id="resultado" name="resultado">Resultado</label>
-                                    <textarea class="form-control result2" id="result" rows="4" ></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                
-                <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-                    <i class="fa fa-close"></i>
-                    Voltar</a>
-            </div>
-        </div>
+                  <div class="container-fluid col-12">
+                    <div class="row-fluid">
 
+                      <label for="criptografar"></label>
+
+                      <textarea class="form-control cripto descripto" id="texto" name="texto" rows="8"></textarea>
+
+                      <div class="input-group row col-12">
+                        <div class="input-group-append">
+                          <input type="text" class="form-control chave2" id="chave" name="chave"
+                            placeholder="Digite a Chave" aria-describedby="button-addon2">
+                        </div>
+                        <div class="input-group-append row-fluid">
+                          <button class="btn btn-primary botaoCri2" type="button" onclick="vigenere_encrypt()"
+                            name="cifrar" id="cifrar">Criptografar</button>
+                            
+                          <button class="btn btn-primary botaoCri2" type="button" onclick="vigenere_decrypt()" name=""
+                          decifrar id="decifrar">Descriptografar</button>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group col-12">
+                    <label for="resultado" id="resultado" name="resultado">Resultado</label>
+                    <textarea class="form-control result2" id="result" rows="4"></textarea>
+                  </div>
+              </div>
+            </div>
+          </div>
+          </form>
+
+          <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+            <i class="fa fa-close"></i>
+            Voltar</a>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Portfolio Modal 3 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Cifra de Transposição</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="img/portfolio/CifradeTranposição.png" alt="">
-            <p class="mb-5">Cifra de Transposição</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
-              <i class="fa fa-close"></i>
-              Close Project</a>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
+      <div class="portfolio-modal-dialog bg-white">
+        <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+          <i class="fa fa-3x fa-times"></i>
+        </a>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <h2 class="text-secondary text-uppercase mb-0">Cifra de Transposição</h2>
+              <hr class="star-dark mb-5">
+              <img class="img-fluid mb-5" src="img/portfolio/CifradeTranposição.png" alt="">
+              <p class="mb-5">Cifra de Transposição</p>
+              <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                <i class="fa fa-close"></i>
+                Close Project</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Function Cifra de Cesar-->
-  <script src="js/functionsCifraCesar.js"></script>
-  <script src="js/functionsCifraVigenare.js"></script>
-  <script src="js/jquery.min.js"></script>
+    <!-- Function Cifra de Cesar-->
+    <script src="js/functionsCifraCesar.js"></script>
+    <script src="js/functionsCifraVigenare.js"></script>
+    <script src="js/jquery.min.js"></script>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-  <!-- Contact Form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
 
-  <!-- Custom scripts for this template -->
-  <script src="js/freelancer.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="js/freelancer.min.js"></script>
 
 </body>
 
