@@ -26,6 +26,7 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 <br/>
 
 ![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/esquemaCesar.png)
+[Fonte - wikipedia](https://pt.wikipedia.org/wiki/Cifra_de_C%C3%A9sar)
 
 
 ### Cifra de Vigenère
@@ -38,12 +39,29 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 
 ![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/tabulaRetaVigenere.png)
 
+[Fonte - wikipedia](https://pt.wikipedia.org/wiki/Cifra_de_Vigen%C3%A8re)
+
 ### Cifra de Transposição
 
 <p>Outro tipo simples de cifra é a de transposição que, diferente da cifra de substituição, consiste em realizar a criptografia através da re-ordenação dos caracteres do texto a ser criptografado. Essa troca dos caracteres deve ser baseada numa chave para que seja possível tanto a cifragem quanto a decifragem.</p>
 
 <p>Uma cifra de transposição simples e bem conhecida é a Cifra das Colunas, onde o texto a ser criptografado é escrito em linhas cujo tamanho é definido por uma chave que corresponderá ao cabeçalho. Os espaços que restarem podem ser deixados em branco ou preenchidos com caracteres sem significado. Ao fim da escrita, o texto estará dividido em colunas e, para que o texto cifrado seja obtido, basta escrever os caracteres de cada coluna tendo como base a ordem alfabética do cabeçalho. Por exemplo, o texto "TROCA DE POSTO" ao ser cifrado com a chave "ZEBRA" teria o seguinte resultado:</>
   
-  [Fonte - Wikibooks](https://pt.wikibooks.org/wiki/Algoritmos/Criptografia)
-  
   ![Fonte - Wikibooks](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/transposicao.PNG)
+  
+<p>#### Seguindo a ordem alfabética do cabeçalho:</p>
+
+<p>Coluna A -> "AP"</p>
+
+<p>Coluna B -> "OET"</p>
+
+<p>Coluna E -> "RDS"</p>
+
+<p>Coluna R -> "C O"</p>
+
+<p>Coluna Z -> "T O"</p>
+
+<p>#### Escrevendo o texto cifrado completo:</p>
+
+<p>**"APOETRDSC OT O"**</p>
+ [Fonte - Wikibooks](https://pt.wikibooks.org/wiki/Algoritmos/Criptografia)
