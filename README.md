@@ -1,6 +1,6 @@
 # Criptografias
 Trabalho como proposta da disciplina de Auditoria de Sistemas
-![Criptografias](https://criptografias.herokuapp.com/ "Clique e acesse agora!")
+[Criptografias](https://criptografias.herokuapp.com/ "Clique e acesse agora!")
 
 ![cabecalho](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/imgLayout.PNG)</br>
 
@@ -25,7 +25,7 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 <p>Em criptografia, a Cifra de César, também conhecida como cifra de troca, código de César ou troca de César, é uma das mais simples e conhecidas técnicas de criptografia. É um tipo de cifra de substituição na qual cada letra do texto é substituída por outra, que se apresenta no alfabeto abaixo dela um número fixo de vezes. Por exemplo, com uma troca de três posições, A seria substituído por D, B se tornaria E, e assim por diante. O nome do método é em homenagem a Júlio César, que o usou para se comunicar com os seus generais.</p>
 <br/>
 
-![Fonte - wikipedia](https://pt.wikipedia.org/wiki/Ficheiro:Caesar3.svg)
+![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/esquemaCesar.png)
 
 
 ### Cifra de Vegenère
