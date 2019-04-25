@@ -21,6 +21,8 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 
 ![tipos de criptografias](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/tiposCriptografias.PNG)
 
+---
+
 ### Cifra de Cesar
 <p>Em criptografia, a Cifra de César, também conhecida como cifra de troca, código de César ou troca de César, é uma das mais simples e conhecidas técnicas de criptografia. É um tipo de cifra de substituição na qual cada letra do texto é substituída por outra, que se apresenta no alfabeto abaixo dela um número fixo de vezes. Por exemplo, com uma troca de três posições, A seria substituído por D, B se tornaria E, e assim por diante. O nome do método é em homenagem a Júlio César, que o usou para se comunicar com os seus generais.</p>
 <br/>
@@ -28,6 +30,7 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 ![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/esquemaCesar.png) <br/>
 [Fonte - wikipedia](https://pt.wikipedia.org/wiki/Cifra_de_C%C3%A9sar) <br/>
 
+---
 
 ### Cifra de Vigenère
 
@@ -41,6 +44,8 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 
 [Fonte - wikipedia](https://pt.wikipedia.org/wiki/Cifra_de_Vigen%C3%A8re)
 
+---
+
 ### Cifra de Transposição
 
 <p>Outro tipo simples de cifra é a de transposição que, diferente da cifra de substituição, consiste em realizar a criptografia através da re-ordenação dos caracteres do texto a ser criptografado. Essa troca dos caracteres deve ser baseada numa chave para que seja possível tanto a cifragem quanto a decifragem.</p>
@@ -49,7 +54,7 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
   
   ![Fonte - Wikibooks](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/transposicao.PNG)
   
-<p>#### Seguindo a ordem alfabética do cabeçalho:</p>
+#### Seguindo a ordem alfabética do cabeçalho:
 
 <p>Coluna A -> "AP"</p>
 
@@ -61,7 +66,7 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 
 <p>Coluna Z -> "T O"</p>
 
-<p>#### Escrevendo o texto cifrado completo:</p>
+#### Escrevendo o texto cifrado completo:
 
 " **APOETRDSC OT O** " <br/>
  [Fonte - Wikibooks](https://pt.wikibooks.org/wiki/Algoritmos/Criptografia)
