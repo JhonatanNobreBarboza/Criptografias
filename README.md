@@ -36,6 +36,6 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 
 <p>Esta cifra é muito conhecida porque é fácil de perceber e de pôr em prática, parecendo, a quem tem pouca prática, que é inquebrável (indecifrável). Consequentemente, muitos programadores implementaram esquemas de criptografia nas suas aplicações que são no essencial cifras de Vigenère, e que são facilmente quebradas por qualquer criptoanalista.</p>
 
-![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/esquemaCesar.png)
+![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/tabulaRetaVigenere.png)
 
 ### Cifra de Transposição
