@@ -28,6 +28,14 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 ![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/esquemaCesar.png)
 
 
-### Cifra de Vegenère
+### Cifra de Vigenère
+
+<p>A cifra de Vigenère é um método de criptografia que usa uma série de diferentes cifras de César baseadas em letras de uma senha. Trata-se de uma versão simplificada de uma mais geral cifra de substituição polialfabética, inventada por Leon Battista Alberti cerca de 1465.</p>
+
+<p>A invenção da cifra de Vigenère é erradamente atribuída a Blaise de Vigenère; encontra-se originalmente descrita por Giovan Battista Bellaso no seu livro datado de 1553 com o título La Cifra del Sig. Giovan Battista Bellaso.</p>
+
+<p>Esta cifra é muito conhecida porque é fácil de perceber e de pôr em prática, parecendo, a quem tem pouca prática, que é inquebrável (indecifrável). Consequentemente, muitos programadores implementaram esquemas de criptografia nas suas aplicações que são no essencial cifras de Vigenère, e que são facilmente quebradas por qualquer criptoanalista.</p>
+
+![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/tabulaRetaVigenere.png)
 
 ### Cifra de Transposição
