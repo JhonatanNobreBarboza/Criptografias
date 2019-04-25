@@ -26,7 +26,7 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 <br/>
 
 ![Fonte - wikipedia](https://github.com/JhonatanNobreBarboza/Criptografias/blob/master/esquemaCesar.png) <br/>
-[Fonte - wikipedia](https://pt.wikipedia.org/wiki/Cifra_de_C%C3%A9sar)
+[Fonte - wikipedia](https://pt.wikipedia.org/wiki/Cifra_de_C%C3%A9sar) <br/>
 
 
 ### Cifra de Vigenère
@@ -63,5 +63,5 @@ Trabalho como proposta da disciplina de Auditoria de Sistemas
 
 <p>#### Escrevendo o texto cifrado completo:</p>
 
-** - APOETRDSC OT O - **
+" **APOETRDSC OT O** " <br/>
  [Fonte - Wikibooks](https://pt.wikibooks.org/wiki/Algoritmos/Criptografia)
