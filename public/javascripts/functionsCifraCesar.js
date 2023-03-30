@@ -1,57 +1,50 @@
 function letraAnterior(s){
     let c = s.charCodeAt(0);
-    switch(c){
-        case 97: return 'z';                
-        default: return String.fromCharCode(--c);
+    if (c === 97) {
+        return 'z';
+    } else if (c >= 98 && c <= 122) {
+        return String.fromCharCode(c - 1);
+    } else {
+        return s;
     }
-     
 }
 
 function letraPosterior(s){
     let c = s.charCodeAt(0);
-    switch(c){
-        case 122: return 'a';        
-        default: return String.fromCharCode(++c);
+    if (c === 122) {
+        return 'a';
+    } else if (c >= 97 && c <= 121) {
+        return String.fromCharCode(c + 1);
+    } else {
+        return s;
     }
 }
 
 function criptografar(){
-    
-    let mensagem = $('.cripto').val().toLowerCase()
-    console.log(mensagem)
-    mensagem = mensagem.replace(/( )+/g, '');
+    let mensagem = $('.cripto').val().toLowerCase();
     mensagem = mensagem.replace(/[^a-zA-Z]/g, '');
-    console.log(mensagem)
-    let key = $('.chave1').val()
-    let mensagemCriptografada = ""
-    for(let i =0; i < mensagem.length; i++){
-        if(mensagem.length == ' '){
-            return 
-        }else{
-        let novoCaracter = String.fromCharCode(mensagem.charCodeAt(i))
+    let key = $('.chave1').val();
+    let mensagemCriptografada = "";
+    for(let i = 0; i < mensagem.length; i++){
+        let novoCaracter = mensagem.charAt(i);
         for(let j = 0; j < key; j++){
-            novoCaracter = letraPosterior(novoCaracter)
+            novoCaracter = letraPosterior(novoCaracter);
         }
-    
-        mensagemCriptografada += novoCaracter
-        }
+        mensagemCriptografada += novoCaracter;
     }
-        campoPreenchido = $(".result").val(mensagemCriptografada);
-    
+    $(".result").val(mensagemCriptografada);
 }
 
-
 function descriptografar(){
-    let mensagem = $(".result").val()
-    let key = $('.chave2').val()
+    let mensagem = $(".result").val();
+    let key = $('.chave2').val();
     let mensagemDescriptografada = "";
-
-    for(let i=0; i < mensagem.length; i++){
-        let novoCaracter = String.fromCharCode(mensagem.charCodeAt(i))
+    for(let i = 0; i < mensagem.length; i++){
+        let novoCaracter = mensagem.charAt(i);
         for(let j = 0; j < key; j++){
-            novoCaracter = letraAnterior(novoCaracter)
+            novoCaracter = letraAnterior(novoCaracter);
         }
-        mensagemDescriptografada += novoCaracter
+        mensagemDescriptografada += novoCaracter;
     }
-    $(".result").val(mensagemDescriptografada)
+    $(".result").val(mensagemDescriptografada);
 }
