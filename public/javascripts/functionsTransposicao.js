@@ -1,146 +1,207 @@
-let mensagem = $('#texto').val();
-let mensagemUpper = mensagem.toUpperCase();
 
-let chave = $('#chave').val();
-let chaveUpper = chave.toUpperCase();
+/**
+ * Criptografias V2.0
+ * Autor: Jhonatan Nobre
+ * Algoritmo: Transposição Colunar
+ */
 
-let alphabet = "abcdefghijklmnopqrstuvwxyz";
-let fullalphabet = alphabet + alphabet + alphabet;
+function validarChaveTransposicao(chave) {
+    if (
+        typeof chave !== 'string' ||
+        !/^[A-Za-z]{2,}$/.test(chave.trim())
+    ) {
+        throw new Error(
+            'A chave deve conter pelo menos duas letras de A a Z.'
+        );
+    }
 
+    return chave.trim().toUpperCase();
+}
 
-function cifraSubstituicao(msg, key){
-    key = (key % alphabet.length);
-    let result = '';
+function ordenarColunas(chave) {
+    return Array.from(chave, (letra, indice) => ({
+        letra,
+        indice
+    }))
+    .sort((a, b) =>
+        a.letra.charCodeAt(0) - b.letra.charCodeAt(0) ||
+        a.indice - b.indice
+    )
+    .map(item => item.indice);
+}
 
-    for(i=0; i<msg.length; i++){
-        let letter = msg[i];
-        let upper = (letter == letter.toUpperCase());
-        letter = letter.toLowerCase();
+function transposicaoEncrypt(mensagem, chave) {
+    chave = validarChaveTransposicao(chave);
 
-        let index = alphabet.indexOf(letter);
-        if(index == -1){
-            result += letter;
+    const caracteres = Array.from(mensagem);
+    const totalColunas = chave.length;
+    const ordem = ordenarColunas(chave);
+
+    const resultado = [];
+
+    for (const coluna of ordem) {
+        for (
+            let i = coluna;
+            i < caracteres.length;
+            i += totalColunas
+        ) {
+            resultado.push(caracteres[i]);
+        }
+    }
+
+    return resultado.join('');
+}
+
+function transposicaoDecrypt(mensagem, chave) {
+    chave = validarChaveTransposicao(chave);
+
+    const caracteres = Array.from(mensagem);
+    const totalColunas = chave.length;
+    const ordem = ordenarColunas(chave);
+
+    const linhas = Math.floor(
+        caracteres.length / totalColunas
+    );
+
+    const resto = caracteres.length % totalColunas;
+
+    const colunas = Array.from(
+        { length: totalColunas },
+        () => []
+    );
+
+    let posicao = 0;
+
+    for (const coluna of ordem) {
+        const tamanho = linhas + (coluna < resto ? 1 : 0);
+
+        colunas[coluna] = caracteres.slice(
+            posicao,
+            posicao + tamanho
+        );
+
+        posicao += tamanho;
+    }
+
+    const resultado = [];
+
+    for (let linha = 0; linha < Math.ceil(
+        caracteres.length / totalColunas
+    ); linha++) {
+        for (let coluna = 0; coluna < totalColunas; coluna++) {
+            if (linha < colunas[coluna].length) {
+                resultado.push(colunas[coluna][linha]);
+            }
+        }
+    }
+
+    return resultado.join('');
+}
+
+// Compatibilidade com a interface original.
+
+function cifraSubstituicao(mensagem, chave) {
+    $('#result').val(cifraCesar(mensagem, chave));
+}
+
+function cifraTransposicao(mensagem, chave, tipo) {
+    const resultado = Number(tipo) === 0
+        ? transposicaoEncrypt(mensagem, chave)
+        : transposicaoDecrypt(mensagem, chave);
+
+    $('#result').val(resultado);
+}
+
+function executarCifraTransposicao(descriptografar) {
+    try {
+        const mensagem = descriptografar
+            ? $('#txt_decript').val()
+            : $('#txt_encript').val();
+
+        const chave = descriptografar
+            ? $('#txt_key_decript').val()
+            : $('#txt_key_encript').val();
+
+        const algoritmo = $(
+            "input[name='algoritmo']:checked"
+        ).val();
+
+        if (!mensagem || !mensagem.trim()) {
+            throw new Error('Digite uma mensagem.');
+        }
+
+        if (algoritmo === '0') {
+            const chaveTexto = String(chave).trim();
+
+            if (!/^[+-]?\d+$/.test(chaveTexto)) {
+                throw new Error('Informe uma chave inteira.');
+            }
+
+            cifraSubstituicao(
+                mensagem,
+                descriptografar ? -Number(chave) : Number(chave)
+            );
+
         } else {
-            index = ((index + key) + alphabet.length);
-            let nextLetter = fullalphabet[index];
-            if(upper) nextLetter = nextLetter.toUpperCase();
-            result += nextLetter;
+            cifraTransposicao(
+                mensagem,
+                chave,
+                descriptografar ? 1 : 0
+            );
         }
-    }
 
-    $('#result').val(result);
+    } catch (erro) {
+        alert(erro.message);
+    }
 }
 
+if (typeof window !== 'undefined' &&
+    typeof $ === 'function') {
 
-function cifraTransposicao(msg, key, tipo) {
-    let result = '';
+    $(document).ready(function () {
+        $('#btn_encript').click(function () {
+            executarCifraTransposicao(false);
+        });
 
-    if(tipo == 0)
-        result = transposicaoEncrypt(msg, key);
-    else
-        result = transposicaoDecrypt(msg, key);
-
-    $('#result').val(result);
-}
-
-function transposicaoEncrypt(msg, key) {
-    let klen = key.length;
-
-    let colLength = msg.length / klen;
-
-    let result = "";
-    k = 0;
-    for (i = 0; i < klen; i++) {
-        while (k < 26) {
-            t = key.indexOf(alphabet.charAt(k));
-            arrkw = key.split("");
-            arrkw[t] = "_";
-            key = arrkw.join("");
-            if (t >= 0) break;
-            else k++;
-        }
-        for (j = 0; j < colLength; j++) {
-            result += msg.charAt(j * klen + t);
-        }
-    }
-    return result;
-}
-
-function transposicaoDecrypt(msg, key) {
-    let klen = key.length;
-    if (klen <= 1) {
-        alert("A key deve ter pelo menos dois caracteres");
-        return;
-    }
-    if (msg.length % klen != 0) {
-        alert("O msg cifrado não foi preenchido, o result pode estar incorreto (key incorreta?).");
-    }
-
-    // Primeiro colocamos o msg em colunas com base no tamanho da key
-    let cols = new Array(klen);
-    let colLength = msg.length / klen;
-    for (i = 0; i < klen; i++) cols[i] = msg.substr(i * colLength, colLength);
-
-    // Agora, reorganizamos as colunas para que elas fiquem no estado de desembaralhamento
-    let newcols = new Array(klen);
-    j = 0;
-    i = 0;
-    while (j < klen) {
-        t = key.indexOf(alphabet.charAt(i));
-        if (t >= 0) {
-            newcols[t] = cols[j++];
-            arrkw = key.split("");
-            arrkw[t] = "_";
-            key = arrkw.join("");
-        } else i++;
-    }
-
-    // Agora leia as colunas em linha
-    let result = "";
-    for (i = 0; i < colLength; i++) {
-        for (j = 0; j < klen; j++) {
-            result += newcols[j].charAt(i);
-        }
-    }
-    return result;
-}
-
-function minusculo(value) {
-    return value.toLowerCase().replace(/[^a-z]/g, "");
-}
-
-function isNumber(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-}
-
-$(document).ready(function() {
-    $('#btn_encript').click(function(){
-        let msg = minusculo($("#txt_encript").val());
-        let key = $("#txt_key_encript").val();
-
-        if($("input[name='algoritmo']:checked").val() == 0) {
-            if(isNumber(key))
-                cifraSubstituicao(msg, key);
-            else
-                alert("A key precisa ser um número para o algoritmo de substituição!");
-        }
-        else {
-            cifraTransposicao(msg, minusculo(key), 0);
-        }
+        $('#btn_decript').click(function () {
+            executarCifraTransposicao(true);
+        });
     });
+}
 
-    $('#btn_decript').click(function(){
-        let msg = minusculo($("#txt_decript").val());
-        let key = $("#txt_key_decript").val();
+// Exportação para testes automatizados.
 
-        if($("input[name='algoritmo']:checked").val() == 0) {
-            if(isNumber(key))
-                cifraSubstituicao(msg, (key * -1));
-            else
-                alert("A key precisa ser um número para o algoritmo de substituição!");
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        validarChaveTransposicao,
+        ordenarColunas,
+        transposicaoEncrypt,
+        transposicaoDecrypt
+    };
+}
+
+// Integração da cifra de transposição com a interface
+function executarTransposicaoModal(decifrar = false) {
+    try {
+        const entrada = document.getElementById('trans-texto');
+        const resultado = document.getElementById('trans-resultado');
+        const chave = document.getElementById('trans-chave').value;
+
+        const mensagem = decifrar
+            ? resultado.value
+            : entrada.value;
+
+        if (!mensagem.trim()) {
+            throw new Error('Digite uma mensagem.');
         }
-        else {
-            cifraTransposicao(msg, minusculo(key), 1);
+
+        if (decifrar) {
+            entrada.value = transposicaoDecrypt(mensagem, chave);
+        } else {
+            resultado.value = transposicaoEncrypt(mensagem, chave);
         }
-    });
-});
+
+    } catch (erro) {
+        alert(erro.message);
+    }
+}

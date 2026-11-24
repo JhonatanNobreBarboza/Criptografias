@@ -1,31 +1,35 @@
 {
   "name": "criptografiasweb",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "consolidate": "^0.15.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "ejs": "^2.6.1",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11",
-    "swig": "^1.4.2"
-  },
-  "description": "Trabalho como proposta da disciplina de Auditoria de Sistemas\r [Criptografias](https://criptografias.herokuapp.com/ \"Clique e acesse agora!\")",
+  "description": "Laboratório educacional de criptografia clássica",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": [
+    "criptografia",
+    "cesar",
+    "vigenere",
+    "transposicao",
+    "educacao",
+    "javascript"
+  ],
+  "author": "Jhonatan Nobre",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JhonatanNobreBarboza/Criptografias.git"
   },
-  "author": "jhonatan nobre",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JhonatanNobreBarboza/Criptografias/issues"
-  },
-  "homepage": "https://github.com/JhonatanNobreBarboza/Criptografias#readme"
+  "dependencies": {
+    "bootstrap": "4.6.2",
+    "express": "^5.3.0",
+    "jquery": "3.7.1",
+    "magnific-popup": "1.2.0"
+  }
 }

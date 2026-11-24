@@ -208,47 +208,120 @@
 
 
   <!-- Portfolio Modal 3 -->
-  <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
-    <div class="portfolio-modal-dialog bg-white">
-      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
-        <i class="fa fa-3x fa-times"></i>
-      </a>
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 class="text-secondary text-uppercase mb-0">Cifra de Transposição</h2>
-            <hr class="star-dark mb-5">
-            <img class="img-fluid mb-5" src="../public/images/portfolio/CifradeTranposição.png"
-              alt="Cifra de Transposição">
-            <p class="mb-5">Descrição da Cifra de Transposição</p>
-            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+  <!-- Portfolio Modal 3 -->
+<div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
+  <div class="portfolio-modal-dialog bg-white">
+
+    <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+      <i class="fa fa-3x fa-times"></i>
+    </a>
+
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+          <h2 class="text-secondary text-uppercase mb-0">
+            Cifra de Transposição
+          </h2>
+
+          <hr class="star-dark mb-5">
+
+          <img class="img-fluid mb-5"
+            src="../public/images/portfolio/CifradeTranposição.png"
+            alt="Cifra de Transposição">
+
+          <p class="mb-5">
+            A cifra de transposição reorganiza os caracteres
+            da mensagem conforme a ordem alfabética da chave.
+          </p>
+
+          <form id="form-transposicao">
+
+            <div class="form-group">
+              <label for="trans-texto">Texto de Entrada</label>
+
+              <textarea
+                class="form-control"
+                id="trans-texto"
+                rows="8"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="trans-chave">Chave</label>
+
+              <div class="input-group">
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="trans-chave"
+                  placeholder="Digite a Chave">
+
+                <div class="input-group-append">
+
+                  <button
+                    class="btn btn-primary"
+                    onclick="executarTransposicaoModal(false)"
+                    type="button">
+                    Criptografar
+                  </button>
+
+                  <button
+                    class="btn btn-primary"
+                    onclick="executarTransposicaoModal(true)"
+                    type="button">
+                    Descriptografar
+                  </button>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="trans-resultado">Resultado</label>
+
+              <textarea
+                class="form-control"
+                id="trans-resultado"
+                rows="4"></textarea>
+            </div>
+
+            <button
+              class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss"
+              type="button">
               <i class="fa fa-close"></i>
-              Fechar Projeto
-            </a>
-          </div>
+              Voltar
+            </button>
+
+          </form>
+
         </div>
       </div>
     </div>
   </div>
+</div>
   <!-- Function Cifra de Cesar-->
-  <script src="../public/javascripts/functionsCifraCesar.js"></script>
-  <script src="../public/javascripts/functionsCifraVigenare.js"></script>
-  <script src="../public/javascripts/jquery.min.js"></script>
+  <!-- Bibliotecas originais -->
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="../public/vendor/jquery/jquery.min.js"></script>
-  <script src="../public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="./public/vendor/jquery/jquery.min.js"></script>
 
-  <!-- Plugin JavaScript -->
-  <script src="../public/vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="../public/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="./public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Contact Form JavaScript -->
-  <script src="../public/javascripts/jqBootstrapValidation.js"></script>
-  <script src="../public/javascripts/contact_me.js"></script>
+<script src="./public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for this template -->
-  <script src="../public/javascripts/freelancer.min.js"></script>
+<script src="./public/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- Algoritmos atualizados -->
+
+<script src="./public/javascripts/functionsCifraCesar.js"></script>
+
+<script src="./public/javascripts/functionsCifraVigenare.js"></script>
+
+<script src="./public/javascripts/functionsTransposicao.js"></script>
+
+<!-- Interface original corrigida -->
+
+<script src="./public/javascripts/freelancer.js"></script>
 
 </body>
 
