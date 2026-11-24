@@ -1,85 +1,81 @@
+
+/**
+ * Criptografias V2.0
+ * Autor: Jhonatan Nobre
+ * Algoritmo: Cifra de Vigenère
+ */
+
+function cifraVigenere(mensagem, chave, descriptografar = false) {
+    if (typeof mensagem !== 'string') {
+        throw new TypeError('A mensagem deve ser um texto.');
+    }
+
+    if (typeof chave !== 'string' || !/^[A-Za-z]+$/.test(chave.trim())) {
+        throw new Error('A chave deve conter apenas letras de A a Z.');
+    }
+
+    const chaveNormalizada = chave.trim().toUpperCase();
+
+    let indiceChave = 0;
+
+    return mensagem.replace(/[A-Za-z]/g, letra => {
+        const base = letra >= 'A' && letra <= 'Z' ? 65 : 97;
+
+        const codigo = letra.charCodeAt(0) - base;
+
+        const deslocamento =
+            chaveNormalizada.charCodeAt(
+                indiceChave % chaveNormalizada.length
+            ) - 65;
+
+        indiceChave++;
+
+        const direcao = descriptografar ? -1 : 1;
+
+        return String.fromCharCode(
+            base + ((codigo + direcao * deslocamento + 26) % 26)
+        );
+    });
+}
+
 function vigenere_encrypt() {
-    const mensagem = $('#texto').val().toUpperCase();
-    const chave = $('#chave').val().toUpperCase();
-    
-    if (!mensagem) {
-      alert("Por favor, digite uma mensagem.");
-      return;
+    try {
+        const mensagem = $('#texto').val();
+        const chave = $('#chave').val();
+
+        if (!mensagem.trim()) {
+            throw new Error('Digite uma mensagem.');
+        }
+
+        const resultado = cifraVigenere(mensagem, chave);
+
+        $('#resultado').text(resultado);
+        $('#result').val(resultado);
+
+    } catch (erro) {
+        alert(erro.message);
     }
-    
-    const mensagem_filtrada = alfabeto(mensagem);
-    const chave_filtrada = alfabeto(chave);
-    let mensagemCriptografada = "";
-  
-    let correctedKeyIndex = -1;
-    for (let i = 0; i < mensagem_filtrada.length; i++) {
-      correctedKeyIndex++;
-  
-      if (correctedKeyIndex > chave_filtrada.length - 1) {
-        correctedKeyIndex = 0;
-      }
-  
-      const code = chave_filtrada[correctedKeyIndex].charCodeAt();
-      mensagemCriptografada += caesar_one_encrypt(mensagem_filtrada[i], (code - 65));
+}
+
+function vigenere_decrypt() {
+    try {
+        const mensagem = $('#result').val();
+        const chave = $('#chave').val();
+
+        if (!mensagem.trim()) {
+            throw new Error('Digite uma mensagem criptografada.');
+        }
+
+        const resultado = cifraVigenere(mensagem, chave, true);
+
+        $('#texto').val(resultado);
+        $('#resultado').text(resultado);
+
+    } catch (erro) {
+        alert(erro.message);
     }
-  
-    document.getElementById("resultado").textContent = mensagemCriptografada;
-    $("#result").val(mensagemCriptografada);
-  }
-  
-  function vigenere_decrypt() {
-    const mensagemCriptografada = $("#result").val().toUpperCase();
-    const chave = $("#chave").val().toUpperCase();
-    
-    if (!mensagemCriptografada) {
-      alert("Por favor, digite uma mensagem criptografada.");
-      return;
-    }
-  
-    if (chave.length < 1) {
-      $("#result").val("Chave Inválida");
-      return;
-    }
-  
-    const mensagem_filtrada = alfabeto(mensagemCriptografada);
-    const chave_filtrada = alfabeto(chave);
-    let mensagemDescriptografada = "";
-  
-    let correctedKeyIndex = -1;
-    for (let i = 0; i < mensagem_filtrada.length; i++) {
-      correctedKeyIndex++;
-  
-      if (correctedKeyIndex > chave_filtrada.length - 1) {
-        correctedKeyIndex = 0;
-      }
-  
-      const code = chave_filtrada[correctedKeyIndex].charCodeAt();
-      mensagemDescriptografada += caesar_one_decrypt(mensagem_filtrada[i], (code - 65));
-    }
-  
-    $("#texto").val(mensagemDescriptografada);
-    $("#result").val(mensagemCriptografada);
-  }
-  
-  function alfabeto(string) {
-    const final = [];
-    for (let i = 0; i < string.length; i++) {
-      if (string[i].match(/[A-Z]/)) {
-        final.push(string[i]);
-      }
-    }
-    return final;
-  }
-  
-  function caesar_one_decrypt(character, currentKey) {    
-    const code = character.charCodeAt();
-    let temp = code - 65  - currentKey
-    if (temp < 0)
-    {
-        temp += 26;
-    }
-    
-    const charNum = ((temp) % 26) + 65;
-    const c = String.fromCharCode(charNum);
-    return c;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { cifraVigenere };
 }

@@ -1,50 +1,77 @@
-function letraAnterior(s){
-    let c = s.charCodeAt(0);
-    if (c === 97) {
-        return 'z';
-    } else if (c >= 98 && c <= 122) {
-        return String.fromCharCode(c - 1);
-    } else {
-        return s;
+
+/**
+ * Criptografias V2.0
+ * Autor: Jhonatan Nobre
+ * Algoritmo: Cifra de César
+ */
+
+function cifraCesar(mensagem, chave) {
+    if (typeof mensagem !== 'string') {
+        throw new TypeError('A mensagem deve ser um texto.');
     }
+
+    if (
+        !/^[+-]?\d+$/.test(String(chave).trim()) ||
+        !Number.isSafeInteger(Number(chave))
+    ) {
+        throw new Error('Informe uma chave numérica inteira válida.');
+    }
+
+    const deslocamento = ((Number(chave) % 26) + 26) % 26;
+
+    return mensagem.replace(/[A-Za-z]/g, letra => {
+        const base = letra >= 'A' && letra <= 'Z' ? 65 : 97;
+
+        const codigo = letra.charCodeAt(0) - base;
+
+        return String.fromCharCode(
+            base + ((codigo + deslocamento) % 26)
+        );
+    });
 }
 
-function letraPosterior(s){
-    let c = s.charCodeAt(0);
-    if (c === 122) {
-        return 'a';
-    } else if (c >= 97 && c <= 121) {
-        return String.fromCharCode(c + 1);
-    } else {
-        return s;
-    }
-}
+function criptografar() {
+    try {
+        const mensagem = $('#formulario .cripto').val();
+        const chave = $('#formulario .chave1').val();
 
-function criptografar(){
-    let mensagem = $('.cripto').val().toLowerCase();
-    mensagem = mensagem.replace(/[^a-zA-Z]/g, '');
-    let key = $('.chave1').val();
-    let mensagemCriptografada = "";
-    for(let i = 0; i < mensagem.length; i++){
-        let novoCaracter = mensagem.charAt(i);
-        for(let j = 0; j < key; j++){
-            novoCaracter = letraPosterior(novoCaracter);
+        if (!mensagem.trim()) {
+            throw new Error('Digite uma mensagem.');
         }
-        mensagemCriptografada += novoCaracter;
+
+        const resultado = cifraCesar(mensagem, chave);
+
+        $('#formulario .result').val(resultado);
+
+    } catch (erro) {
+        alert(erro.message);
     }
-    $(".result").val(mensagemCriptografada);
 }
 
-function descriptografar(){
-    let mensagem = $(".result").val();
-    let key = $('.chave2').val();
-    let mensagemDescriptografada = "";
-    for(let i = 0; i < mensagem.length; i++){
-        let novoCaracter = mensagem.charAt(i);
-        for(let j = 0; j < key; j++){
-            novoCaracter = letraAnterior(novoCaracter);
+
+function descriptografar() {
+    try {
+        const mensagem = $('#formulario .result').val();
+        const chave = $('#formulario .chave1').val();
+
+        if (!mensagem.trim()) {
+            throw new Error('Digite uma mensagem criptografada.');
         }
-        mensagemDescriptografada += novoCaracter;
+
+        if (!/^[+-]?\d+$/.test(chave.trim())) {
+            throw new Error('Informe uma chave inteira válida.');
+        }
+
+        $('#formulario .cripto').val(
+            cifraCesar(mensagem, -Number(chave))
+        );
+
+    } catch (erro) {
+        alert(erro.message);
     }
-    $(".result").val(mensagemDescriptografada);
+}
+
+// Permite executar testes automatizados no Node.js.
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { cifraCesar };
 }
